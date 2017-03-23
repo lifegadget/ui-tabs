@@ -1,0 +1,28 @@
+$tab-curvature: 8px;
+
+.tab-pane.default-skin {
+
+  & .tab-item {
+    padding: 0.5rem;
+    border: 1px solid darkgrey;
+    margin-left: -1px;
+    cursor: pointer;
+    border-top-left-radius: $tab-curvature;
+    border-top-right-radius: $tab-curvature;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &.selected {
+      font-weight: 600;
+      background-color: rgb(96%, 96%, 96%);
+    }
+
+    &:hover {
+      background-color: rgb(91.3%, 91.3%, 91.3%);
+    }
+  }
+
+
+}

@@ -1,0 +1,23 @@
+<tab-pane class="ui-tabs tab-pane {{class}} {{direction}} {{skin}}-skin {{if fill 'fill' 'fit'}}">
+  {{#if tabs}}
+
+    {{#each _tabs as |tabTitle|}}
+      {{ui-tab tabTitle 
+        selected=selected
+        onClick=(action 'onClick')
+      }}
+    {{/each}}
+
+  {{else}}
+
+    {{yield (hash 
+        tab=(component 'ui-tab' 
+          title=tabTitle
+          selected=selected
+          onClick=(action 'onClick')
+        )
+    )}}
+
+  {{/if}}
+
+</tab-pane>

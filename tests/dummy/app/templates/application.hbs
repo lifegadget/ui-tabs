@@ -1,5 +1,23 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<h1>ui-tabs</h1>
 
-{{outlet}}
+<h2>Using Inline Component</h2>
+
+{{ui-tabs
+  tabs='one,two,three'
+  selected=selected
+  onChange=(action (mut selected))
+}}
+
+<h2>Using Block Components</h2>
+
+{{#ui-tabs
+  selected=selected2
+  onChange=(action (mut selected2))
+  as |t|
+}}
+
+  {{t.tab 'Foey' value='foo'}}
+  {{t.tab 'Barred' value='bar'}}
+  {{t.tab 'Bazed' value='baz'}}
+
+{{/ui-tabs}}

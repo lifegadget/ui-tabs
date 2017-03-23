@@ -1,0 +1,17 @@
+@import './ui-tabs/skins/default';
+
+.ui-tabs {
+  display: flex;
+}
+
+.tab-pane {
+
+  & .horizontal {
+    flex-direction: row;
+  }
+
+  & .vertical {
+    flex-direction: column;
+  }
+
+}
