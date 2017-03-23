@@ -1,4 +1,4 @@
-# [ui-tabs](https://github.com/lifegadget/ui-tabs)
+# [ui-tabs](https://ui-tabs.firebaseapp.com)
 
 A simple tab interface for Ember apps
 
