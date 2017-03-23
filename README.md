@@ -1,24 +1,43 @@
 # ui-tabs
 
-This README outlines the details of collaborating on this Ember addon.
+A simple tab interface for Ember apps
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ui-tabs`
-* `npm install`
-* `bower install`
+* `ember install ui-tabs` in your app repository
 
-## Running
+## Usage
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+### Inline
 
-## Running Tests
+    {{ui-tabs 
+      tabs='Foo,Bar,Baz' 
+      selected=selected 
+      defaultValue='foo' 
+      onChange=(action (mut selected))
+    }}
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+### Block
+
+    {{#ui-tabs
+      selected=selected
+      defaultValue='foo'
+
+      as |t|
+    }}
+
+      {{t.tab 'Foo'}}
+      {{t.tab 'Bar' value='barred'}}
+      {{#t.tab value='baz'}}
+        BAZ
+      {{/t.tab}}
+
+    {{/ui-tabs}}
+
+
+## Demo
+
+[https://ui-tabs.firebaseapp.com](https://ui-tabs.firebaseapp.com)
 
 ## Building
 
