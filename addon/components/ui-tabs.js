@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/ui-tabs';
 
-const { typeOf, debug, computed, assign, String: {htmlSafe} } = Ember;
+const { typeOf, debug, computed } = Ember;
 
 export default Ember.Component.extend({
   layout,
@@ -9,6 +9,18 @@ export default Ember.Component.extend({
   skin: 'default',
   direction: 'horizontal',
   fill: true,
+
+  didInsertElement() {
+    this._super(...arguments);
+    const { selected, defaultValue, onChange } = this.getProperties('selected', 'defaultValue', 'onChange');
+    if (!selected && defaultValue) {
+      if (onChange) {
+        onChange(defaultValue);
+      } else {
+        debug(`ui-tabs: can not set defaultValue because container is not listening to onChange`);
+      }
+    }
+  },  
 
   _tabs: computed('tabs', function() {
     const {tabs} = this.getProperties('tabs');
@@ -25,7 +37,7 @@ export default Ember.Component.extend({
           debug(`ui-tabs: a tab click was received but the container is not listening to "onChange" event handler`);
         }
       } else {
-        debug(`ui-tabs: click event made no change ( ${selected} => ${value} )`)
+        debug(`ui-tabs: click event made no change ( ${selected} => ${value} )`);
       }
     }
   }

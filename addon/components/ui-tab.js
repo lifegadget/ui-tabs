@@ -15,8 +15,8 @@ const tab = Ember.Component.extend({
 
   value: computed('title', function() {
     const { title } = this.getProperties('title');
-
-    return title.split(':')[1] || title.split(':')[0];
+    const value = title.split(':')[1] || title.split(':')[0];
+    return String(value).toLowerCase().replace(/[ .,]/, '-');
   }),
 
   actions: {
